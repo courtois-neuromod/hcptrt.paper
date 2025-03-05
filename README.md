@@ -6,13 +6,6 @@ Datapaper repo for the hcptrt dataset.
 
 ```
 .
-├── src
-│   ├── behavior
-│   │   └── some_behavior_script.py
-│   ├── motion
-│   │   └── some_motion_script.py
-│   └── tsnr
-│       └── some_tsnr_script.py
 ├── manuscript
 │   └── myst
 │       ├── binder
@@ -39,12 +32,18 @@ Datapaper repo for the hcptrt dataset.
 │   │   └── some_figure.png
 │   └── tables
 │       └── some_table.csv
-└── sourcedata
-    └── hcptrt.all
-        ├── companions
-        │   └── hcptrt.stimuli
-        ├── hcptrt
-        ├── hcptrt.fmriprep
-        └── README.md
-
+├── sourcedata
+│   └── hcptrt.all
+│       ├── companions
+│       │   └── hcptrt.stimuli
+│       ├── hcptrt
+│       ├── hcptrt.fmriprep
+│       └── README.md
+└── src
+    ├── behavior
+    │   └── some_behavior_script.py
+    ├── motion
+    │   └── some_motion_script.py
+    └── tsnr
+        └── some_tsnr_script.py
 ```
