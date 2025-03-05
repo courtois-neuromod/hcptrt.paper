@@ -1,0 +1,6 @@
+[submodule "manuscript/myst"]
+	path = manuscript/myst
+	url = git@github.com:courtois-neuromod/hcptrt.paper.myst
+[submodule "sourcedata/hcptrt.all"]
+	path = sourcedata/hcptrt.all
+	url = git@github.com:courtois-neuromod/hcptrt.all
