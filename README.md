@@ -6,7 +6,7 @@ Datapaper repo for the hcptrt dataset.
 
 ```
 .
-├── analysis
+├── src
 │   ├── behavior
 │   │   └── some_behavior_script.py
 │   ├── motion
