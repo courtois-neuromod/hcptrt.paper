@@ -4,6 +4,3 @@
 [submodule "sourcedata/hcptrt.all"]
 	path = sourcedata/hcptrt.all
 	url = git@github.com:courtois-neuromod/hcptrt.all
-[submodule "src/consistency"]
-	path = src/consistency
-	url = git@github.com:courtois-neuromod/hcptrt_consistency
