@@ -1,0 +1,28 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 34d210fe-99db-40a8-af47-a6976ca1e86c
+  title: "Whitetail Media"
+  description: "Everything about the White Tail Media Project."
+  keywords: ["docs"]
+  toc:
+    - file: README.md
+    - file: mission/mission.md
+      children:
+        - file: mission/roadmap.md
+        - file: mission/governance.md
+    - file: installation/installation.md
+      children:
+        - file: installation/setup_git.md
+        - file: installation/setup_datalad.md
+        - file: installation/setup_rclone.md
+    - file: docs/setup_docs.md
+    - file: data/data_overview.md
+
+site:
+  title: "Witetail Media"
+  template: book-theme
+  options:
+    favicon: img/whitetailmedia_fav.ico
+    logo: img/whitetailmedia_logo.png
+    logo_text: "White Tail Media"

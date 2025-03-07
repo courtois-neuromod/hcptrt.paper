@@ -1,0 +1,34 @@
+BootStrap: docker
+From: python:3.11-alpine
+
+%post
+    echo "🚀 Setting up a minimal MyST container..."
+
+    # Install system dependencies
+    apk add --no-cache \
+        bash coreutils git nodejs npm
+    npm install -g http-server
+
+    # Upgrade pip
+    pip install --upgrade pip
+
+    # Ensure /workspace exists
+    mkdir -p /workspace
+
+%files
+    requirements.txt /workspace/requirements.txt
+
+%post
+    # Install Python dependencies
+    pip install mystmd ghp-import
+    pip install --requirement /workspace/requirements.txt
+
+    # Clean up unnecessary package caches
+    rm -rf /root/.cache/pip
+    npm cache clean --force
+    rm -rf /var/cache/apk/*
+
+%runscript
+    echo "📝 MyST Minimal Container Ready!"
+    cd /workspace
+    exec /bin/bash
