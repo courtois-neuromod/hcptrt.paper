@@ -2,12 +2,12 @@
 version: 1
 project:
   id: 34d210fe-99db-40a8-af47-a6976ca1e86c
-  title: "Intensive test-retest replication of the Human Connectome Projet tasks on six individuals"
+  title: "HCP-TRT dataset"
   description: "This myst article reproduces the figures of a publication describing the hcptrt dataset."
   keywords: ["fmri", "task", "HCP"]
   toc:
-    - file: introduction
-    - file: some_plots.ipynb
+    - file: intro.md
+    - file: plots.ipynb
 
 site:
   title: "HCP-TRT article"
