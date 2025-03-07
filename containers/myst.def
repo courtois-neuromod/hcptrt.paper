@@ -1,16 +1,26 @@
 BootStrap: docker
-From: python:3.11-alpine
+From: python:3.11-slim
 
 %post
     echo "🚀 Setting up a minimal MyST container..."
 
     # Install system dependencies
-    apk add --no-cache \
-        bash coreutils git nodejs npm
+    apt-get update && apt-get install -y --no-install-recommends \
+        bash \
+        coreutils \
+        git \
+        nodejs \
+        npm \
+        python3-venv \
+        python3-pip
+
     npm install -g http-server
 
     # Upgrade pip
     pip install --upgrade pip
+
+    # Install Python dependencies
+    pip install mystmd jupyter ghp-import
 
     # Ensure /workspace exists
     mkdir -p /workspace
@@ -19,14 +29,14 @@ From: python:3.11-alpine
     requirements.txt /workspace/requirements.txt
 
 %post
+    echo "🚀 Adding project-specific dependencies..."
+
     # Install Python dependencies
-    pip install mystmd ghp-import
     pip install --requirement /workspace/requirements.txt
 
     # Clean up unnecessary package caches
-    rm -rf /root/.cache/pip
+    apt-get clean && rm -rf /var/lib/apt/lists/* /root/.cache/pip
     npm cache clean --force
-    rm -rf /var/cache/apk/*
 
 %runscript
     echo "📝 MyST Minimal Container Ready!"
