@@ -2,7 +2,7 @@ from invoke import task
 import os
 
 CONTAINER_PATH = "container/container-myst.sif"
-CONTAINER_NAME = "hcptrt.paper_container"
+CONTAINER_NAME = "hcptrt.myst_article_container"
 DEFINITION_FILE = "container/container-myst.def"
 
 @task
@@ -42,9 +42,9 @@ def container_stop(c):
     print("✅ Container stopped.")
 
 @task
-def paper(c):
-    """Start MyST paper server locally (Live Preview)."""
-    print("📖 Starting live MyST paper server on http://localhost:3000...")
+def article(c):
+    """Start MyST article server locally (Live Preview)."""
+    print("📖 Starting live MyST article server on http://localhost:3000...")
 
     if not os.path.exists(CONTAINER_PATH):
         print("❌ Container image not found. Run `invoke create_container` first.")
@@ -52,12 +52,12 @@ def paper(c):
 
     c.run(f"apptainer exec --bind $PWD:/workspace {CONTAINER_PATH} myst start", pty=True)
 
-    print("✅ MyST live paper is running!")
+    print("✅ MyST live article is running!")
 
 @task
-def paper_clean(c):
-    """Clean the built paper files using MyST's built-in clean command."""
-    print("🧹 Cleaning up built paper...")
+def article_clean(c):
+    """Clean the built article files using MyST's built-in clean command."""
+    print("🧹 Cleaning up built article...")
 
     if not os.path.exists(CONTAINER_PATH):
         print("❌ Container image not found. Run `invoke build_container` first.")
@@ -66,7 +66,7 @@ def paper_clean(c):
     # Run MyST's built-in clean command
     c.run(f"apptainer exec --bind $PWD:/workspace {CONTAINER_PATH} myst clean")
 
-    print("✅ paper build cleaned!")
+    print("✅ article build cleaned!")
 
 @task
 def html_build(c, base_url=None):
