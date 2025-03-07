@@ -1,0 +1,6 @@
+.ipynb_checkpoints/
+article/.ipynb_checkpoints/
+article/_build
+
+# MyST build outputs
+_build

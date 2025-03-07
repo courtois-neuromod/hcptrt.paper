@@ -1,0 +1,18 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 34d210fe-99db-40a8-af47-a6976ca1e86c
+  title: "HCP-TRT dataset"
+  description: "This myst article reproduces the figures of a publication describing the hcptrt dataset."
+  keywords: ["fmri", "task", "HCP"]
+  toc:
+    - file: intro.md
+    - file: plots.ipynb
+
+site:
+  title: "HCP-TRT article"
+  template: book-theme
+  options:
+    favicon: img/favico.ico
+    logo: img/hcp_logo.png
+    logo_text: "HCP logo"

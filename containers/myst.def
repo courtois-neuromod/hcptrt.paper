@@ -1,0 +1,44 @@
+BootStrap: docker
+From: python:3.11-slim
+
+%post
+    echo "🚀 Setting up a minimal MyST container..."
+
+    # Install system dependencies
+    apt-get update && apt-get install -y --no-install-recommends \
+        bash \
+        coreutils \
+        git \
+        nodejs \
+        npm \
+        python3-venv \
+        python3-pip
+
+    npm install -g http-server
+
+    # Upgrade pip
+    pip install --upgrade pip
+
+    # Install Python dependencies
+    pip install mystmd jupyter ghp-import
+
+    # Ensure /workspace exists
+    mkdir -p /workspace
+
+%files
+    requirements.txt /workspace/requirements.txt
+
+%post
+    echo "🚀 Adding project-specific dependencies..."
+
+    # Install Python dependencies
+    pip install --requirement /workspace/requirements.txt
+
+    # Clean up unnecessary package caches
+    apt-get clean && rm -rf /var/lib/apt/lists/* /root/.cache/pip
+    npm cache clean --force
+
+%runscript
+    echo "📝 MyST Minimal Container Ready!"
+    cd /workspace
+    exec /bin/bash
