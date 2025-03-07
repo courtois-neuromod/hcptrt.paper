@@ -50,6 +50,8 @@ To create an image for your container:
 invoke container-build
 ```
 
+Note: in the future, the plan is to have a datalad-controlled, public container image to just download ready to go, unless you want to update the environment of the project. This will likely be hosted on OSF, inside a `hcptrt.paper` project.
+
 ### Live View of the Article
 
 Once the container is successfully generated, you can see the article in action! Run this bad boy: 🔥
